@@ -6,7 +6,7 @@
     <router-view />
   </main>
   <footer class="bg-dark text-light">
-    made by cool dudes
+    made by some cool dudes
   </footer>
 </template>
 
