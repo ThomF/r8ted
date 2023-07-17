@@ -4,16 +4,22 @@
       <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
         class="rounded-circle">
       <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        welcome to MOVY
+        welcome to MOVEY
       </h1>
     </div>
   </div>
+
+  <div id="draggable-element">Drag me!</div>
 </template>
 
 <script>
 export default {
+
   setup() {
-    return {}
+
+    return {
+
+    }
   }
 }
 </script>
