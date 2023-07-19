@@ -14,6 +14,12 @@ namespace r8ted.Services
             review = review.FindAll(r => r.User_id == id);
             return review;
         }
+        internal Review GetOneReview(int id, string userId)
+        {
+            Review review = _repo.GetOneReview(id);
+            if(review == null) throw new Exception($"No Review with that id: {id} ");
+            return review;
+        }
 
         internal Review CreateReview(Review reviewData)
         {

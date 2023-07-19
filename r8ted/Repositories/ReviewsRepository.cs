@@ -25,6 +25,24 @@ namespace r8ted.Repositories
             return review;
         }
 
+        internal Review GetOneReview(int id)
+        {
+            string sql = @"
+            SELECT
+            rev.*,
+            act.*
+            FROM review rev
+            JOIN accounts act ON rev.user_id = act.id
+            WHERE rev.id = @id;
+            ";
+            Review review = _db.Query<Review, Profile, Review>(sql, (review, prof)=>
+            {
+                review.Creator = prof;
+                return review;
+            }, new { id }).FirstOrDefault();
+            return review;
+        }
+
         internal Review CreateReview(Review reviewData)
         {
             string sql = @"

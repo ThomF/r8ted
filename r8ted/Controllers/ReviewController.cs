@@ -29,6 +29,21 @@ namespace r8ted.Controllers
         return BadRequest(e.Message);
         }
     }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Review>> GetOneReview(int id)
+    {
+        try 
+        {
+        Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+        Review review = _reviewService.GetOneReview(id, userInfo?.Id);
+        return Ok(review);
+        }
+        catch (Exception e)
+        {
+        return BadRequest(e.Message);
+        }
+    }
+    
     [HttpPost]
     [Authorize]
     async public Task<ActionResult<Review>> CreateReview([FromBody] Review reviewData)
