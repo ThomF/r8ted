@@ -62,5 +62,23 @@ namespace r8ted.Controllers
         }
     }
 
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<ActionResult<Review>> UpdateReview(int id, [FromBody] Review reviewData)
+    {
+        try 
+        {
+        Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+        Review review = _reviewService.UpdateReview(id, reviewData, userInfo);
+        return Ok(review);
+        }
+        catch (Exception e)
+        {
+        return BadRequest(e.Message);
+        }
+    }
+
+
+
     }
 }

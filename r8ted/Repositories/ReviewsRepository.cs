@@ -56,5 +56,19 @@ namespace r8ted.Repositories
             reviewData.Id = id;
             return reviewData;
         }
+
+        internal int UpdateReview(Review original)
+        {
+            string sql = @"
+            UPDATE review
+            SET
+            title = @title,
+            description = @description,
+            isPrivate = @IsPrivate
+            WHERE id = @id;
+            ";
+            int rows = _db.Execute(sql, original);
+            return rows;
+        }
     }
 }

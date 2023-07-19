@@ -29,6 +29,8 @@ public class AccountService
     Account original = GetProfileByEmail(userEmail);
     original.Name = editData.Name.Length > 0 ? editData.Name : original.Name;
     original.Picture = editData.Picture.Length > 0 ? editData.Picture : original.Picture;
+    original.Banner = editData.Banner.Length > 0 ? editData.Banner : original.Banner;
+    original.Verified = editData.Verified ? true : original.Verified;
     return _repo.Edit(original);
   }
 }
