@@ -16,3 +16,9 @@ CREATE TABLE IF NOT EXISTS review(
   isPrivate BOOLEAN NOT NULL default false,
   FOREIGN KEY (user_id) REFERENCES accounts(id) ON DELETE CASCADE
 );
+
+            SELECT 
+            rev.*,
+            act.*
+            FROM review rev
+            JOIN accounts act ON rev.user_id = act.id;

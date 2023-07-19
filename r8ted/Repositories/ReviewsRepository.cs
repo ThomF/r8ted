@@ -12,7 +12,7 @@ namespace r8ted.Repositories
         {
             string sql = @"
             SELECT 
-            rev.*
+            rev.*,
             act.*
             FROM review rev
             JOIN accounts act ON rev.user_id = act.id;
