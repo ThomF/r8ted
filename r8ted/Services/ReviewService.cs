@@ -41,7 +41,13 @@ namespace r8ted.Services
             return original;
         }
 
-
+        internal string DeleteReview(int id, Account userInfo)
+        {
+            Review review = this.GetOneReview(id, userInfo.Id);
+            bool result = _repo.DeleteReview(id);
+            if(review.User_id != userInfo.Id) throw new Exception("You cant do that bud");
+            return $"Deleted {review.Title}";
+        }
 
     }
 }

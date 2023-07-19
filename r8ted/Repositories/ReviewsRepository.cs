@@ -70,5 +70,14 @@ namespace r8ted.Repositories
             int rows = _db.Execute(sql, original);
             return rows;
         }
+
+        internal bool DeleteReview(int id)
+        {
+            string sql = @"
+            DELETE FROM review WHERE id = @id;
+            ";
+            int rows = _db.Execute(sql, new{id});
+            return rows == 1;
+        }
     }
 }

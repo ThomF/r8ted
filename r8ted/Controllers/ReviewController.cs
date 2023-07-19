@@ -78,7 +78,21 @@ namespace r8ted.Controllers
         }
     }
 
-
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<ActionResult<string>> DeleteReview(int id)
+    {
+        try 
+        {
+        Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+        String message = _reviewService.DeleteReview(id, userInfo);
+        return Ok(message);
+        }
+        catch (Exception e)
+        {
+        return BadRequest(e.Message);
+        }
+    }
 
     }
 }
