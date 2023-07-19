@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
+using Npgsql;
 
 namespace r8ted;
 
@@ -69,7 +70,7 @@ public class Startup
   private IDbConnection CreateDbConnection()
   {
     string connectionString = Configuration["CONNECTION_STRING"];
-    return new MySqlConnection(connectionString);
+    return new NpgsqlConnection(connectionString);
   }
 
 
