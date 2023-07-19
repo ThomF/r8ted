@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using MySqlConnector;
 using Npgsql;
 
 namespace r8ted;
@@ -34,6 +33,8 @@ public class Startup
 
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
+    services.AddScoped<ReviewsRepository>();
+    services.AddScoped<ReviewService>();
   }
 
   private void ConfigureCors(IServiceCollection services)
