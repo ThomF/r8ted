@@ -1,19 +1,16 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <!-- <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle"> -->
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        welcome to MVY!
-      </h1>
+  <div class="container" v-if="movies">
+    <div class="row">
+      <div v-for="m in movies" class="col-3">
+        <MovieCard :movie="m" />
+      </div>
     </div>
   </div>
-
-  <!-- <div id="draggable-element">Drag me!</div> -->
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
+import { AppState } from '../AppState';
 import { movieServices } from '../services/MovieServices';
 import { logger } from '../utils/Logger';
 
@@ -31,7 +28,7 @@ export default {
       getMovies()
     })
     return {
-
+      movies: computed(() => AppState.movies)
     }
   }
 }
