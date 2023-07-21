@@ -6,7 +6,14 @@ export const api = Axios.create({
   baseURL,
   timeout: 10000
 })
-
+export const movieApi = Axios.create({
+  baseURL: 'https://api.themoviedb.org/3/',
+  timeout: 8000,
+  params: {
+    api_key: '656d5d20452918affe798f793c99add1',
+    include_adult: true
+  }
+})
 api.interceptors.request.use(config => config, handleAxiosError)
 api.interceptors.response.use(response => response, handleAxiosError)
 

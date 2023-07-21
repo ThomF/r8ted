@@ -13,10 +13,23 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import { movieServices } from '../services/MovieServices';
+import { logger } from '../utils/Logger';
+
 export default {
-
   setup() {
+    async function getMovies() {
+      try {
+        await movieServices.getMovies()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
 
+    onMounted(() => {
+      getMovies()
+    })
     return {
 
     }
