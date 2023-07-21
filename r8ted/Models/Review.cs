@@ -8,6 +8,8 @@ namespace r8ted.Models
         public string Description { get; set;}
         public string Title { get; set;}
         public int Likes {get; set;}
+        public int catOne {get; set;}
+        public int catTwo {get; set;}
         public bool IsPrivate { get; set;}
         public bool JoshRated { get; set;}
 

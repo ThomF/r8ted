@@ -33,6 +33,9 @@ namespace r8ted.Services
             if(original.User_id != userInfo.Id) throw new Exception("You Cant Edit that");
             original.Title = reviewData.Title != null ? reviewData.Title : original.Title;
             original.Description = reviewData.Description != null ? reviewData.Description : original.Description;
+            original.catOne = reviewData.catOne != 0 ? reviewData.catOne : original.catOne;
+            original.catTwo = reviewData.catTwo != 0 ? reviewData.catTwo : original.catTwo;
+            // FIXME ADD MORE CATS BASED ON DATA AND Qs
             original.IsPrivate = reviewData.IsPrivate ? true : original.IsPrivate;
 
             int rowsAffected = _repo.UpdateReview(original);
