@@ -2,7 +2,7 @@
     <div v-if="movie">
         <div class="container-fluid">
             <div class="row mt-3">
-                <div class="row ">
+                <div class=" ">
                     <img class="bg-banner" :src="movie.backdropImg" :alt="movie.title">
                 </div>
                 <div class="col-4 mb-5">
@@ -10,8 +10,13 @@
                         <img :src="movie.posterImg" :alt="movie.title">
                     </div>
                 </div>
-                <div class="col-2 offset-1">
-                    <h2>{{ movie.title }}</h2>
+                <div class="col-4">
+                    <div class="card">
+                        <h2>{{ movie.title }}</h2>
+                        <div class="card-body">
+                            {{ movie.overview }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,7 +65,7 @@ export default {
     // background-image: v-bind(backdropImage);
     filter: blur(35px);
     height: 100vh;
-    transform: scale(110%);
+    transform: scale(120%);
     z-index: -1;
     position: absolute;
 }
