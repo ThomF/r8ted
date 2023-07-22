@@ -5,15 +5,15 @@
                 <div class="">
                     <img class="bg-banner" :src="movie.backdropImg" :alt="movie.title">
                 </div>
-                <div class="col-4 mb-5">
+                <div class="col-md-4 mb-5">
                     <div class="card bg-clear elevation-5">
                         <img :src="movie.posterImg" :alt="movie.title">
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card bg-glass">
+                <div class="col-md-4">
+                    <div class="card bg-glass elevation-3">
                         <h2>{{ movie.title }}</h2>
-                        <div class="card-body">
+                        <div class="card-body elevation-2">
                             {{ movie.overview }}
                         </div>
                     </div>
@@ -22,11 +22,17 @@
         </div>
     </div>
     <div v-else>
-        <span class="loader bg-dark">
-            <span class="loader_ball"></span>
-            <span class="loader_ball"></span>
-            <span class="loader_ball"></span>
-        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <span class="loader bg-dark">
+                        <span class="loader_ball"></span>
+                        <span class="loader_ball"></span>
+                        <span class="loader_ball"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
