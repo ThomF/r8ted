@@ -6,6 +6,14 @@
       </div>
     </div>
   </div>
+
+  <div v-else>
+    <span class="loader bg-dark">
+      <span class="loader_ball"></span>
+      <span class="loader_ball"></span>
+      <span class="loader_ball"></span>
+    </span>
+  </div>
 </template>
 
 <script>
@@ -52,6 +60,38 @@ export default {
       object-fit: contain;
       object-position: center;
     }
+  }
+}
+
+.loader {
+  display: inline-block;
+}
+
+.loader_ball {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  margin-inline: 5px;
+  border-radius: 50%;
+  animation: bounce 450ms alternate infinite;
+}
+
+.loader_ball:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.loader_ball:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes bounce {
+  from {
+    transform: scaleX(1.25);
+  }
+
+  to {
+    transform: translateY(-50px) scaleX(1);
   }
 }
 </style>
