@@ -2,11 +2,11 @@
     <div v-if="movie">
         <div class="container-fluid">
             <div class="row mt-3">
-                <div class=" ">
+                <div class="">
                     <img class="bg-banner" :src="movie.backdropImg" :alt="movie.title">
                 </div>
                 <div class="col-4 mb-5">
-                    <div class="card">
+                    <div class="card bg-clear elevation-5">
                         <img :src="movie.posterImg" :alt="movie.title">
                     </div>
                 </div>
@@ -68,5 +68,9 @@ export default {
     transform: scale(120%);
     z-index: -1;
     position: absolute;
+}
+
+.bg-clear {
+    background-color: rgba(255, 255, 255, 0.157);
 }
 </style>
