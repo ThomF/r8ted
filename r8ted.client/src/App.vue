@@ -5,7 +5,7 @@
   <main>
     <router-view />
   </main>
-  <footer class="bg-dark text-light">
+  <footer class="bg-dark text-light fixed-bottom">
     made by some cool dudes
   </footer>
 </template>

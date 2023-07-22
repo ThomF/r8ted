@@ -14,7 +14,10 @@ class MovieServices {
         AppState.totalPages = res.data.total_pages
     }
 
-
+    async getMovieById(movieId) {
+        const res = await movieApi.get('movie/' + movieId)
+        AppState.movie = new Movie(res.data)
+    }
 
 }
 

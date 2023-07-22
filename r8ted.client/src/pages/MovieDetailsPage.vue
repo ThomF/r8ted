@@ -1,18 +1,67 @@
 <template>
-    <div class="component">
-
-        movie details
+    <div v-if="movie">
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <div class="row ">
+                    <img class="bg-banner" :src="movie.backdropImg" :alt="movie.title">
+                </div>
+                <div class="col-4 mb-5">
+                    <div class="card">
+                        <img :src="movie.posterImg" :alt="movie.title">
+                    </div>
+                </div>
+                <div class="col-2 offset-1">
+                    <h2>{{ movie.title }}</h2>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 
 <script>
+import { computed, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { AppState } from '../AppState';
+import { movieServices } from '../services/MovieServices';
+import { logger } from '../utils/Logger';
+
 export default {
+
     setup() {
-        return {}
+        const route = useRoute()
+
+        async function getMovie() {
+            try {
+                const movieId = route.params.movieId
+                await movieServices.getMovieById(movieId)
+            } catch (error) {
+                logger.error(error.message)
+            }
+        }
+
+        onMounted(() => {
+            getMovie()
+        })
+        onUnmounted(() => {
+            AppState.movie = null
+        })
+        return {
+            movie: computed(() => AppState.movie),
+            backdropImage: computed(() => `url(${AppState.movie?.backdropImg})`)
+        }
     }
 }
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.bg-banner {
+    // background-image: v-bind(backdropImage);
+    filter: blur(35px);
+    height: 100vh;
+    transform: scale(110%);
+    z-index: -1;
+    position: absolute;
+}
+</style>
