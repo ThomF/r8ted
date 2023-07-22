@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" v-if="movies">
+  <div class="container" v-if="movies">
     <div class="row">
       <div v-for="m in movies" class="col-3">
         <MovieCard :movie="m" />

@@ -3,15 +3,18 @@
     <router-link :to="{ name: 'MovieDetails', params: { movieId: movie.id } }">
         <div class="card elevation-5 mt-2 mb-2">
             <img :src="movie.posterImg" :alt="movie.title">
-            <!-- <div class="card-body bg-dark">
+        </div>
+    </router-link>
+
+    <!-- NOTE this stuff is random can delete later -->
+    <!-- <div class="card-body bg-dark">
                 {{ movie.title }}
             </div> -->
-        </div>
-        <!-- <div class="image-container elevation-3">
+    <!-- <div class="image-container elevation-3">
             <img :src="movie.posterImg" class="img-fluid roundCard pt-2 pb-2" alt="">
             <h2 class="hidden-text">{{ movie.title }}</h2>
         </div> -->
-    </router-link>
+
     <!-- <div class="bg-white rounded-lg shadow-md p-6 max-w-sm">
         <img src="https://via.placeholder.com/300" alt="Card Image">
         <h3 class="">Card Title</h3>
@@ -36,6 +39,16 @@ export default {
 
 
 <style lang="scss" scoped>
+.card {
+    transition: transform 0.15s;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+
+
 // CHAT GPT SILLY STUFF
 
 .image-container {
