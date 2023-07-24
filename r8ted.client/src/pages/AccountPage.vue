@@ -1,9 +1,10 @@
 <template>
   <div class="about text-center">
+    <img :src="account.banner" alt="">
+
     <h1>Welcome {{ account.name }} !</h1>
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
-    <img :src="account.banner" alt="">
   </div>
   <!-- TODO CHANGE this from a modal to just editable sections on press. will look cleaner -->
   <button class="btn btn-success mdi mdi-pen" data-bs-toggle="modal" data-bs-target="#editAccount"
