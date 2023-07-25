@@ -20,6 +20,7 @@
 import { computed, onMounted } from 'vue';
 import { AppState } from '../AppState';
 import { movieServices } from '../services/MovieServices';
+import { reviewServices } from '../services/ReviewServices';
 import { logger } from '../utils/Logger';
 
 export default {
@@ -31,9 +32,17 @@ export default {
         logger.error(error)
       }
     }
+    async function getReviews() {
+      try {
+        await reviewServices.getReviews()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
 
     onMounted(() => {
       getMovies()
+      getReviews()
     })
     return {
       movies: computed(() => AppState.movies)

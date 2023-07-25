@@ -1,7 +1,7 @@
 import { AppState } from "../AppState"
 import { Movie } from "../models/Movie"
 import { logger } from "../utils/Logger"
-import { movieApi } from "./AxiosService"
+import { api, movieApi } from "./AxiosService"
 
 class MovieServices {
 
@@ -18,6 +18,8 @@ class MovieServices {
         const res = await movieApi.get('movie/' + movieId)
         AppState.movie = new Movie(res.data)
     }
+
+
 
 }
 

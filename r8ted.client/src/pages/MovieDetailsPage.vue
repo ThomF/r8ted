@@ -15,22 +15,17 @@
                         <h2>{{ movie.title }}</h2>
                         <div class="card-body elevation-2">
                             {{ movie.overview }}
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div v-else>
-        <div class="container">
-            <div class="row">
-                <div class="col-4 offset-4">
-                    <span class="loader bg-dark">
-                        <span class="loader_ball"></span>
-                        <span class="loader_ball"></span>
-                        <span class="loader_ball"></span>
-                    </span>
-                </div>
+    <div v-if="review" class="container">
+        <div class="row">
+            <div v-if="review.userId = account.id" class="card">
+                {{ account.name }}
             </div>
         </div>
     </div>
@@ -42,6 +37,7 @@ import { computed, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { AppState } from '../AppState';
 import { movieServices } from '../services/MovieServices';
+import { reviewServices } from '../services/ReviewServices';
 import { logger } from '../utils/Logger';
 
 export default {
@@ -57,15 +53,25 @@ export default {
                 logger.error(error.message)
             }
         }
+        async function getReviews() {
+            try {
+                await reviewServices.getReviews()
+            } catch (error) {
+                logger.error(error)
+            }
+        }
 
         onMounted(() => {
             getMovie()
+            getReviews()
         })
         onUnmounted(() => {
             AppState.movie = null
         })
         return {
             movie: computed(() => AppState.movie),
+            review: computed(() => AppState.reviews),
+            account: computed(() => AppState.account),
             backdropImage: computed(() => `url(${AppState.movie?.backdropImg})`)
         }
     }

@@ -8,7 +8,8 @@ export const AppState = reactive({
 
   /** @type {import('./models/Movie.js').Movie[]} */
   movies: [],
-
+  /** @type {import('./models/Review.js').Review[]} */
+  reviews: [],
   /** @type {import('./models/Movie.js').Movie|null} */
   movie: null,
   reviewForm: false,
