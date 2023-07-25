@@ -11,7 +11,7 @@ export const AppState = reactive({
 
   /** @type {import('./models/Movie.js').Movie|null} */
   movie: null,
-
+  reviewForm: false,
   /** @type {Number} */
   currentPage: 0,
 
