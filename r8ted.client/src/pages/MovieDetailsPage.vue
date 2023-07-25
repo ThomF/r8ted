@@ -26,6 +26,12 @@
         <div class="row">
             <div v-if="review.userId = account.id" class="card">
                 {{ account.name }}
+                <!-- FIXME probably will need to pull in the review as a prop -->
+                {{ review }}
+            </div>
+            <div v-else class="card">
+                create review
+                <button class="btn btn-success">+</button>
             </div>
         </div>
     </div>
