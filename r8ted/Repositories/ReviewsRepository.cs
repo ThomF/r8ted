@@ -24,6 +24,23 @@ namespace r8ted.Repositories
             }).ToList();
             return review;
         }
+        internal List<Review> GetReviewsByMovie(int id)
+        {
+            string sql = @"
+            SELECT 
+            rev.*,
+            act.*
+            FROM review rev
+            JOIN accounts act ON rev.user_id = act.id
+            WHERE rev.movie_id = @id;
+            ";
+            List<Review> review = _db.Query<Review, Profile, Review>(sql, (review, prof)=>
+            {
+                review.Creator = prof;
+                return review;
+            }).ToList();
+            return review;
+        }
 
         internal Review GetOneReview(int id)
         {
