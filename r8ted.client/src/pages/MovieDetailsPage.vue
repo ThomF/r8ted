@@ -23,17 +23,22 @@
         </div>
     </div>
     <div v-if="review" class="container">
-        <div class="row">
+        <div v-for="r in review">
+            <ReviewCard :review="r" />
+        </div>
+
+
+        <!-- <div class="row">
             <div v-if="review.userId = account.id" class="card">
                 {{ account.name }}
-                <!-- FIXME probably will need to pull in the review as a prop -->
-                {{ review }}
+                FIXME probably will need to pull in the review as a prop
+                
             </div>
             <div v-else class="card">
                 create review
                 <button class="btn btn-success">+</button>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
