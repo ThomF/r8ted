@@ -32,17 +32,17 @@ export default {
         logger.error(error)
       }
     }
-    async function getReviews() {
-      try {
-        await reviewServices.getReviews()
-      } catch (error) {
-        logger.error(error)
-      }
-    }
+    // async function getReviews() {
+    //   try {
+    //     await reviewServices.getReviews()
+    //   } catch (error) {
+    //     logger.error(error)
+    //   }
+    // }
 
     onMounted(() => {
       getMovies()
-      getReviews()
+      // getReviews()
     })
     return {
       movies: computed(() => AppState.movies)

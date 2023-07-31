@@ -61,7 +61,8 @@ export default {
         }
         async function getReviews() {
             try {
-                await reviewServices.getReviews()
+                const movieId = route.params.movieId
+                await reviewServices.getReviews(movieId)
             } catch (error) {
                 logger.error(error)
             }

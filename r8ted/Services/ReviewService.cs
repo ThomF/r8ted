@@ -23,7 +23,7 @@ namespace r8ted.Services
         // NOTE this returns reviews with specific movie IDs
         internal List<Review> GetReviewPerMovie(int id, string userId)
         {
-            List <Review> review = _repo.GetReviewsByMovie(id);
+            List<Review> review = _repo.GetReviewsByMovie(id);
             if(review == null) throw new Exception($"No Review with that id: {id} ");
             return review;
         }

@@ -38,7 +38,7 @@ namespace r8ted.Repositories
             {
                 review.Creator = prof;
                 return review;
-            }).ToList();
+            }, new {id}).ToList();
             return review;
         }
 
@@ -64,9 +64,9 @@ namespace r8ted.Repositories
         {
             string sql = @"
             INSERT INTO review
-            (title, movie_id, description, isPrivate, user_id, catOne, catTwo)
+            (title, movie_id, description, isPrivate, user_id)
             VALUES
-            (@title, @movie_id, @description, @isPrivate, @user_id, @catOne, @catTwo)
+            (@title, @movie_id, @description, @isPrivate, @user_id)
             RETURNING id;
             ";
             int id = _db.ExecuteScalar<int>(sql, reviewData);

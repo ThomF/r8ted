@@ -43,13 +43,13 @@ namespace r8ted.Controllers
         return BadRequest(e.Message);
         }
     }
-    [HttpGet("movie/{id}")]
+    [HttpGet("Movie/{id}")]
     public async Task<ActionResult<Review>> GetReviewsPerMovie(int id)
     {
         try 
         {
         Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
-        List <Review> review = _reviewService.GetReviewPerMovie(id, userInfo?.Id);
+        List<Review> review = _reviewService.GetReviewPerMovie(id, userInfo?.Id);
         return Ok(review);
         }
         catch (Exception e)
