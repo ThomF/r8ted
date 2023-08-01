@@ -23,7 +23,7 @@
         </div>
     </div>
     <div v-if="review" class="container">
-        <div v-for="r in review">
+        <div v-for=" r  in  review ">
             <ReviewCard :review="r" />
         </div>
 
