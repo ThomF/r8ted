@@ -1,14 +1,20 @@
 <template>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body d-flex">
             <!-- TODO look into grabbing user info on these? -->
+            <div class="d-flex flex-column p-1 m-1">
+                <img class="userImg" :src="review.userImg" alt="">
+                <i>{{ review.userName }}</i>
+            </div>
             <div>
-                <h5>{{ review.userName }}</h5>
+
                 <h4>{{ review.title }}</h4>
                 <p>{{ review.description }}</p>
             </div>
         </div>
-        <i class=" text-danger mdi mdi-heart">{{ review.likes }}</i>
+        <div>
+            <i class=" text-danger mdi mdi-heart">{{ review.likes }}</i>
+        </div>
     </div>
 </template>
 
@@ -31,4 +37,10 @@ export default {
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.userImg {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+</style>
