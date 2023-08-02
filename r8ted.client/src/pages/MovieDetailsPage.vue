@@ -23,22 +23,22 @@
         </div>
     </div>
     <div v-if="review" class="container">
+        <div class="row">
+            <!-- FIXME look into this -->
+            <!-- <div v-if="reviews.userId && review.userId != account.id" class="card">
+                create review
+                <button class="btn btn-success">+</button>
+            </div> -->
+
+
+        </div>
+        <!-- eslint-disable-next-line vue/require-v-for-key -->
         <div v-for=" r  in  review ">
             <ReviewCard :review="r" />
         </div>
 
 
-        <!-- <div class="row">
-            <div v-if="review.userId = account.id" class="card">
-                {{ account.name }}
-                FIXME probably will need to pull in the review as a prop
-                
-            </div>
-            <div v-else class="card">
-                create review
-                <button class="btn btn-success">+</button>
-            </div>
-        </div> -->
+
     </div>
 </template>
 
@@ -47,12 +47,15 @@
 import { computed, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { AppState } from '../AppState';
+import { Review } from '../models/Review';
 import { movieServices } from '../services/MovieServices';
 import { reviewServices } from '../services/ReviewServices';
 import { logger } from '../utils/Logger';
 
 export default {
-
+    props: {
+        reviews: { type: Review }
+    },
     setup() {
         const route = useRoute()
 

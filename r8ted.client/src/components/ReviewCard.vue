@@ -7,9 +7,10 @@
                 <i>{{ review.userName }}</i>
             </div>
             <div>
-
                 <h4>{{ review.title }}</h4>
-                <p>{{ review.description }}</p>
+                <div class="">
+                    <p>{{ review.description }}</p>
+                </div>
             </div>
         </div>
         <div>
