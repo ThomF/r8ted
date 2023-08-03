@@ -10,7 +10,7 @@
                         <img :src="movie.posterImg" :alt="movie.title">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div v-if="review" class="col-md-4">
                     <div class="card bg-glass elevation-3">
                         <h2>{{ movie.title }}</h2>
                         <div class="card-body elevation-2">
@@ -18,6 +18,10 @@
 
                         </div>
                     </div>
+                    <!-- eslint-disable-next-line vue/require-v-for-key -->
+                    <!-- <div v-for=" r  in  review ">
+                        <ReviewCard :review="r" />
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -25,10 +29,11 @@
     <div v-if="review" class="container">
         <div class="row">
             <!-- FIXME look into this -->
-            <!-- <div v-if="reviews.userId && review.userId != account.id" class="card">
+            <!-- v-if="reviews.userId && review.userId === account.id" -->
+            <div class="card">
                 create review
-                <button class="btn btn-success">+</button>
-            </div> -->
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reviewForm">+</button>
+            </div>
 
 
         </div>
@@ -40,6 +45,10 @@
 
 
     </div>
+
+    <Modal id="reviewForm">
+        <ReviewForm />
+    </Modal>
 </template>
 
 
@@ -57,39 +66,40 @@ export default {
         reviews: { type: Review }
     },
     setup() {
-        const route = useRoute()
-
+        const route = useRoute();
         async function getMovie() {
             try {
-                const movieId = route.params.movieId
-                await movieServices.getMovieById(movieId)
-            } catch (error) {
-                logger.error(error.message)
+                const movieId = route.params.movieId;
+                await movieServices.getMovieById(movieId);
+            }
+            catch (error) {
+                logger.error(error.message);
             }
         }
         async function getReviews() {
             try {
-                const movieId = route.params.movieId
-                await reviewServices.getReviews(movieId)
-            } catch (error) {
-                logger.error(error)
+                const movieId = route.params.movieId;
+                await reviewServices.getReviews(movieId);
+            }
+            catch (error) {
+                logger.error(error);
             }
         }
-
         onMounted(() => {
-            getMovie()
-            getReviews()
-        })
+            getMovie();
+            getReviews();
+        });
         onUnmounted(() => {
-            AppState.movie = null
-        })
+            AppState.movie = null;
+        });
         return {
             movie: computed(() => AppState.movie),
             review: computed(() => AppState.reviews),
             account: computed(() => AppState.account),
             backdropImage: computed(() => `url(${AppState.movie?.backdropImg})`)
-        }
-    }
+        };
+    },
+    // components: { Modal }
 }
 </script>
 

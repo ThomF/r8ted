@@ -10,10 +10,12 @@
                 <h4>{{ review.title }}</h4>
                 <div class="">
                     <p>{{ review.description }}</p>
+                    <h4>{{ review.catOne }}</h4>
+                    <h4>{{ review.catTwo }}</h4>
                 </div>
             </div>
             <div>
-                <h4>{{ review.catOne }}</h4>
+
             </div>
         </div>
         <div>
