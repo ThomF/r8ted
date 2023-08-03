@@ -28,6 +28,8 @@
 
 <script>
 import { ref } from 'vue';
+import { accountService } from '../services/AccountService';
+import Pop from '../utils/Pop';
 
 export default {
     computed: {
@@ -38,7 +40,16 @@ export default {
     setup() {
         const editable = ref({})
         return {
-            editable
+            editable,
+            async editAccount() {
+                try {
+                    await accountService.editAccount(editable.value)
+                    Pop.success("Account Edited!")
+                    editable.value = {}
+                } catch (error) {
+                    Pop.error('Something Went Wrong! Try again Later...', error.message)
+                }
+            }
         }
     }
 }
