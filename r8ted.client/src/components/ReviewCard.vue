@@ -12,6 +12,9 @@
                     <p>{{ review.description }}</p>
                 </div>
             </div>
+            <div>
+                <h4>{{ review.catOne }}</h4>
+            </div>
         </div>
         <div>
             <i class=" text-danger mdi mdi-heart">{{ review.likes }}</i>
