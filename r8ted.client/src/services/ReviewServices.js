@@ -11,5 +11,11 @@ class ReviewServices {
         AppState.reviews = res.data.map(r => new Review(r))
         // logger.log('[APPSTATE REVIEWS]', AppState.reviews)
     }
+
+    async submitReview(review) {
+        // logger.log(review)
+        const res = await api.post('api/review', review)
+        logger.log("{THIS IS THE RES DATA FROM THE API}", res.data)
+    }
 }
 export const reviewServices = new ReviewServices()
