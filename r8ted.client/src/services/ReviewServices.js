@@ -15,7 +15,9 @@ class ReviewServices {
     async submitReview(review) {
         // logger.log(review)
         const res = await api.post('api/review', review)
-        logger.log("{THIS IS THE RES DATA FROM THE API}", res.data)
+        // logger.log("{THIS IS THE RES DATA FROM THE API}", res.data)
+        // FIXME make this reactive on post?
+        AppState.reviews.push = res.data
     }
 }
 export const reviewServices = new ReviewServices()
