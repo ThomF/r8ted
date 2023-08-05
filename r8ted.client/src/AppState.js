@@ -5,7 +5,7 @@ export const AppState = reactive({
   user: {},
   /** @type {import('./models/Account.js').Account} */
   account: {},
-
+  accountEditor: false,
   /** @type {import('./models/Movie.js').Movie[]} */
   movies: [],
   /** @type {import('./models/Review.js').Review[]} */
