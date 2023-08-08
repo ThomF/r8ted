@@ -6,7 +6,11 @@
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
   </div> -->
-  <div class="container-fluid rounded bg-coverImg">
+
+  <!-- FIXME on update BG breaks so maybe get rid of banners??
+                                    ***bg-coverImg
+  -->
+  <div class="container-fluid rounded ">
     <div class="row">
       <div class="col-3"></div>
       <div class="col-md-6">
@@ -18,9 +22,6 @@
             <!-- <img class="rounded-circle" width="300" height="300" :src="account.picture" alt=""> -->
             <h3>Enter Image URL for Profile Image</h3>
             <input type="text" v-model="editable.picture" :placeholder="account.picture" class="form-control"
-              maxlength="25000" minlength="0">
-            <h3>Enter Image URL for Banner Image</h3>
-            <input type="text" v-model="editable.banner" :placeholder="account.coverImg" class="form-control"
               maxlength="25000" minlength="0">
           </form>
         </div>
@@ -62,12 +63,12 @@
   </div>
 
 
-  <!-- TODO CHANGE this from a modal to just editable sections on press. will look cleaner -->
+  <!-- SECTION DONE -- CHANGE this from a modal to just editable sections on press. will look cleaner -->
   <!-- <button class="btn btn-success mdi mdi-pen" data-bs-toggle="modal" data-bs-target="#editAccount"
     title="edit account"></button> -->
-  <modal id="editAccount">
+  <!-- <modal id="editAccount">
     <EditAccountForm />
-  </modal>
+  </modal> -->
 </template>
 
 <script>
