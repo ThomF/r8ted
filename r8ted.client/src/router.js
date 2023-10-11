@@ -28,6 +28,7 @@ const routes = [
     component: loadPage('ProfilePage'),
     // beforeEnter: authGuard
   },
+  // NOTE LOOK INTO REVIEW AND COMMUNITY ORINETED PAGES
   {
     path: '/movies/:movieId',
     name: 'MovieDetails',
