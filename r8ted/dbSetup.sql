@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS accounts(
   email varchar(255),
   picture varchar(255)
 );
-
+-- NOTE LOOK INTO
 CREATE TABLE IF NOT EXISTS review(
   id INT NOT NULL PRIMARY KEY,
   user_id VARCHAR(255) NOT NULL,
@@ -19,3 +19,4 @@ CREATE TABLE IF NOT EXISTS review(
   FOREIGN KEY (user_id) REFERENCES accounts(id) ON DELETE CASCADE
 );
 
+-- SILLY MAYBE LOOK INTO COMMENTS
