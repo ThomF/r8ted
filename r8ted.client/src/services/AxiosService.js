@@ -10,7 +10,7 @@ export const movieApi = Axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
   timeout: 8000,
   params: {
-    api_key: '656d5d20452918affe798f793c99add1',
+    api_key: 'eb73506f1385591c710db753fe0dbbb7',
     include_adult: true
   }
 })

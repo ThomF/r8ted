@@ -25,9 +25,19 @@
     "typescript.referencesCodeLens.showOnAllFunctions": true,
     "js/ts.implicitProjectConfig.checkJs": true,
     "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
       "**/.nyc_*": true,
       "**/coverage": true,
-      "**/node_modules": true
+      "**/node_modules": true,
+      "**/.retool_types/**": true,
+      "**/*tsconfig.json": true,
+      ".cache": true,
+      "retool.config.json": true
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "explorer.confirmDragAndDrop": false,
@@ -36,7 +46,7 @@
     "eslint.lintTask.enable": true,
     "eslint.codeActionsOnSave.mode": "all",
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
+      "source.fixAll": "explicit"
     },
     "files.associations": {
       "*.vue": "vue"
@@ -63,6 +73,9 @@
       "titleBar.inactiveBackground": "#668af999",
       "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#668af9"
+    "peacock.color": "#668af9",
+    "cSpell.words": [
+      "Npgsql"
+    ]
   }
 }
